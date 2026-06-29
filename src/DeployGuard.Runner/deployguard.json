@@ -1,0 +1,29 @@
+{
+  "environment": "production",
+  "secretExpiry": {
+    "enabled": true,
+    "warningDays": 14,
+    "keyVaultName": ""
+  },
+  "openP1Bugs": {
+    "enabled": true,
+    "areaPath": "",
+    "organization": "",
+    "project": ""
+  },
+  "codeCoverage": {
+    "enabled": true,
+    "thresholdPercent": 80,
+    "organization": "",
+    "project": ""
+  },
+  "branchPolicy": {
+    "enabled": true,
+    "targetBranch": "main",
+    "requireReviewers": true,
+    "requireWorkItemLink": true,
+    "organization": "",
+    "project": "",
+    "repositoryId": ""
+  }
+}

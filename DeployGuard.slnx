@@ -1,0 +1,7 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/DeployGuard.Core/DeployGuard.Core.csproj" />
+    <Project Path="src/DeployGuard.Runner/DeployGuard.Runner.csproj" />
+    <Project Path="src/DeployGuard.Tests/DeployGuard.Tests.csproj" />
+  </Folder>
+</Solution>

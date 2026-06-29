@@ -1,0 +1,69 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Microsoft/azure-pipelines-task-lib/master/tasks.schema.json",
+  "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+  "name": "DeployGuard",
+  "friendlyName": "DeployGuard Policy Check",
+  "description": "Pre-deployment policy checker that validates secret expiry, open P1 bugs, code coverage, and branch policies before allowing deployment.",
+  "helpMarkDown": "[Learn more about DeployGuard](https://github.com/K-riti/DeployGuard)",
+  "category": "Deploy",
+  "author": "DeployGuard",
+  "version": {
+    "Major": 1,
+    "Minor": 0,
+    "Patch": 0
+  },
+  "instanceNameFormat": "DeployGuard Policy Check - $(environment)",
+  "inputs": [
+    {
+      "name": "environment",
+      "type": "string",
+      "label": "Environment",
+      "defaultValue": "production",
+      "required": true,
+      "helpMarkDown": "The deployment environment name (e.g., production, staging)"
+    },
+    {
+      "name": "keyVaultName",
+      "type": "string",
+      "label": "Azure Key Vault Name",
+      "required": false,
+      "helpMarkDown": "Name of the Azure Key Vault to check for expiring secrets"
+    },
+    {
+      "name": "areaPath",
+      "type": "string",
+      "label": "Area Path",
+      "required": false,
+      "helpMarkDown": "Azure DevOps area path to check for P1 bugs (e.g., MyProject\\Backend)"
+    },
+    {
+      "name": "coverageThreshold",
+      "type": "int",
+      "label": "Code Coverage Threshold (%)",
+      "defaultValue": "80",
+      "required": false,
+      "helpMarkDown": "Minimum required code coverage percentage"
+    },
+    {
+      "name": "secretExpiryWarningDays",
+      "type": "int",
+      "label": "Secret Expiry Warning Days",
+      "defaultValue": "14",
+      "required": false,
+      "helpMarkDown": "Number of days before secret expiry to trigger a warning"
+    },
+    {
+      "name": "targetBranch",
+      "type": "string",
+      "label": "Target Branch",
+      "defaultValue": "main",
+      "required": false,
+      "helpMarkDown": "Branch to check for branch policies"
+    }
+  ],
+  "execution": {
+    "PowerShell3": {
+      "target": "DeployGuard.ps1"
+    }
+  }
+}
